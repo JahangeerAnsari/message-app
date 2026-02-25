@@ -3,6 +3,19 @@
 
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+/*
+
+
+1. The Core Entities
+Think of these as the nouns of your application:
+
+Profile: A unique user in your system.
+
+Server: A community or workspace.
+
+Member: A "bridge" that says "Profile X is inside Server Y."
+
+Channel: A specific room (Text/Voice/Video) inside a Server.*/
 
 generator client {
   provider = "prisma-client-js"
