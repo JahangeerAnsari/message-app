@@ -19,6 +19,7 @@ import { initialFormSchema } from "../schema/form-schema";
 import z from "zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { FileUpload } from "../file-upload";
 const InitialModal = () => {
   const form = useForm({
     resolver: zodResolver(initialFormSchema),
@@ -50,7 +51,21 @@ const InitialModal = () => {
       <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <div className="space-y-8 px-6">
           <div className="flex items-center justify-center text-center">
-              UPLOAD IMAGE
+              <FieldGroup>
+            <Controller
+              name="imageUrl"
+              control={form.control}
+              render={({ field,fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  
+                  <FileUpload endpoint="serverImage" value={field.value} onChange={field.onChange}/>
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+          </FieldGroup>
           </div>
           <FieldGroup>
             <Controller
