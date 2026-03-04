@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 
 import { TooltipProvider } from "@/components/ui/tooltip"
+import ModalProvider from "@/components/provider/modal-provider";
 const font = Open_Sans({
   subsets: ["latin"],
 });
@@ -27,6 +28,7 @@ export default function RootLayout({
         <body
           className={font.className}
         >
+          <ModalProvider/>
            <ThemeProvider
             attribute="class"
             defaultTheme="dark"
