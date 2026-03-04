@@ -4,7 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 
-
+import { TooltipProvider } from "@/components/ui/tooltip"
 const font = Open_Sans({
   subsets: ["latin"],
 });
@@ -33,8 +33,10 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="message-app"
           >
-            {children}
+            <TooltipProvider>{children}</TooltipProvider>
+            
           </ThemeProvider>
+         
         </body>
       </html>
     </ClerkProvider>
