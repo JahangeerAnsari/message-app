@@ -10,7 +10,7 @@ const ServerMainLayout = ({children}:ServerLayoutProps) => {
              <NavigationSidebar/>
          </div>
          
-         <div className="md:pl-20 h-full">
+         <div className="md:pl-18 h-full">
             {children}
          </div>
         </div>

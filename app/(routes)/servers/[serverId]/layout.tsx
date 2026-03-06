@@ -1,3 +1,4 @@
+import { ServerSidebar } from "@/components/server/server-sidebar";
 import { getCurrentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
@@ -18,7 +19,7 @@ const ServerIdLayout = async ({
     return redirect("/sign-in");
   }
 
-  const serverId = params.serverId;
+  const serverId = params?.serverId;
 
   const server = await db.server.findFirst({
     where: {
@@ -38,7 +39,7 @@ const ServerIdLayout = async ({
   return (
     <div className="h-full">
       <div className="hidden md:flex h-full w-60 z-20 flex-col fixed inset-y-0">
-        members
+        <ServerSidebar serverId={serverId}/>
       </div>
       <main className="h-full md:pl-60">{children}</main>
     </div>
