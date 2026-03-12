@@ -8,7 +8,6 @@ interface ServerSidebarProps{
     serverId:string
 }
 export const ServerSidebar = async({serverId}:ServerSidebarProps) =>{
-    console.log("params at laypiy",serverId);
     
     const profile = await getCurrentProfile();
     if(!profile){
@@ -35,6 +34,7 @@ export const ServerSidebar = async({serverId}:ServerSidebarProps) =>{
             }
         }
     });
+    
     const textChannels = server?.channels.filter((channel) => channel.type === ChannelType.TEXT)
     const audioChannels = server?.channels.filter((channel) => channel.type === ChannelType.AUDIO);
     const videoChannels = server?.channels.filter((channel) => channel.type === ChannelType.VIDEO);

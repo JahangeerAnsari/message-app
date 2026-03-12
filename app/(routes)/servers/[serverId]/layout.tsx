@@ -5,7 +5,10 @@ import { redirect } from "next/navigation";
 
 interface ServerIdLayoutProps {
   children: React.ReactNode;
-  params: { serverId: string };
+ params:Promise<{
+        serverId:string
+    }>
+   
 }
 
 const ServerIdLayout = async ({
@@ -19,11 +22,11 @@ const ServerIdLayout = async ({
     return redirect("/sign-in");
   }
 
-  const serverId = params?.serverId;
+  const serverId = (await params).serverId;
 
   const server = await db.server.findFirst({
     where: {
-      id: serverId,
+      id: (await params).serverId,
       members: {
         some: {
           profileId: profile.id,

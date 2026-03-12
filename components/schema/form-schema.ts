@@ -13,3 +13,6 @@ export const initialFormSchema = z.object({
     //   "Only .jpg, .jpeg, .png and .webp formats are supported."
     // )
 })
+export const inviteFormSchema =z.object({
+    urlLink:z.string().min(1,"Url link is required.")
+})
